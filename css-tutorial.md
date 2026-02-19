@@ -415,6 +415,7 @@ background-size: cover;
 ```css
 .product-card {
             width: 100%; max-width: 300px;
+            margin: 0 auto; /* center the card horizontally */
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -433,6 +434,7 @@ background-size: cover;
 
         .product-info {
             padding: 15px;
+            text-align: center; /* center product text/content */
         }
 
         .product-title {
@@ -454,18 +456,26 @@ background-size: cover;
         }
 
         .product-button {
-            display: block;
+            display: inline-block; /* allow button to be centered and sized to content */
             background: linear-gradient(to right, #3e6d9f, #274260);
             color: white;
             text-align: center;
-            padding: 10px;
+            padding: 10px 18px;
             text-decoration: none;
-            margin-top: 15px;
+            margin: 15px auto 0; /* center the button */
             border-radius: 4px;
         }
 
         .product-button:hover {
             background: linear-gradient(to right, #3e6d9f, #274260);
+        }
+
+        /* Center the section heading for products */
+        #products-heading {
+          text-align: center;
+          font-size: 1.25rem; /* ~20px */
+          margin: 0 0 1rem;
+          color: #333;
         }
 ```
 [![alt text](<ภาพถ่ายหน้าจอ 2569-02-19 เวลา 16.01.29 1.png>)]
@@ -567,26 +577,61 @@ border: 1px solid black;
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Statistics Dashboard</title>
-    <link rel="stylesheet" href="stat.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ตัวอย่างหน้าเว็บ - เมนู, สินค้า และสถิติ</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="product card.css">
+  <link rel="stylesheet" href="stat.css">
 </head>
 <body>
-    <div class="stats-container">
-        <div class="stat-box">
-            <div class="stat-number">1,234</div>
-            <div class="stat-label">ผู้ใช้งาน</div>
+  <header>
+    <nav aria-label="เมนูหลัก">
+      <ul>
+        <li><a href="#home" class="menu-item">หน้าแรก</a></li>
+        <li><a href="#products" class="menu-item active">สินค้า</a></li>
+        <li><a href="#about" class="menu-item">เกี่ยวกับเรา</a></li>
+        <li><a href="#contact" class="menu-item">ติดต่อ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="products" aria-labelledby="products-heading">
+      <h2 id="products-heading">สินค้าแนะนำ</h2>
+      <div class="product-card">
+        <div class="product-image" role="img" aria-label="รองเท้าแมรี่เจน"></div>
+        <div class="product-info">
+          <h3 class="product-title">รองเท้าแมรี่เจน</h3>
+          <p class="product-price">฿559</p>
+          <p class="product-description">รองเท้าแมรี่เจนสไตล์คลาสสิกที่มาพร้อมกับดีไซน์ที่น่ารักและความสะดวกสบาย เหมาะสำหรับทุกโอกาส ไม่ว่าจะเป็นการเดินเล่นในสวนหรือการออกงาน</p>
+          <a href="#" class="product-button">เพิ่มลงตะกร้า</a>
         </div>
-        <div class="stat-box">
-            <div class="stat-number">5.6K</div>
-            <div class="stat-label">ยอดขาย</div>
+      </div>
+    </section>
+
+    <section id="stats" aria-labelledby="stats-heading">
+      <h2 id="stats-heading">สถิติ</h2>
+      <div class="stats-container">
+        <div class="stat-box" role="group" aria-labelledby="stat1-label">
+          <div class="stat-number" id="stat1-number">1,234</div>
+          <div class="stat-label" id="stat1-label">ผู้ใช้งาน</div>
         </div>
-        <div class="stat-box">
-            <div class="stat-number">98%</div>
-            <div class="stat-label">ความพึงพอใจ</div>
+        <div class="stat-box" role="group" aria-labelledby="stat2-label">
+          <div class="stat-number" id="stat2-number">5.6K</div>
+          <div class="stat-label" id="stat2-label">ยอดขาย</div>
         </div>
-    </div>
+        <div class="stat-box" role="group" aria-labelledby="stat3-label">
+          <div class="stat-number" id="stat3-number">98%</div>
+          <div class="stat-label" id="stat3-label">ความพึงพอใจ</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p style="text-align:center;padding:1rem 0;color:#666;">© 2026 ตัวอย่างเว็บไซต์</p>
+  </footer>
 </body>
 </html>
 ```
@@ -606,10 +651,19 @@ body{
   color: var(--accent);
 }
 
+/* Center the visible heading for the stats section */
+#stats-heading {
+  text-align: center;
+  font-size: 1.25rem;
+  margin: 0 0 1rem;
+  color: var(--accent);
+}
+
 .stats-container {
   display: flex;
   gap: 1rem;
-  justify-content: space-between;
+  justify-content: center; /* center the whole group */
+  flex-wrap: wrap; /* allow boxes to wrap on smaller screens */
   max-width: 1100px;
   margin: 2.5rem auto;
   padding: 0 1rem;
@@ -617,7 +671,7 @@ body{
 }
 
 .stat-box {
-  flex: 1 1 0;
+  flex: 0 1 220px; /* don't stretch; each box is at most 220px but can shrink */
   margin: 0;
   padding: 1.25rem 1.5rem;
   text-align: center;
@@ -678,7 +732,7 @@ body{
   .stat-label { font-size: 0.85rem; }
 }
 ```
-[![alt text](<ภาพถ่ายหน้าจอ 2569-02-19 เวลา 16.08.10.png>)]
+[![alt text](<ภาพถ่ายหน้าจอ 2569-02-19 เวลา 16.25.56.png>)]
 
 [](#การทดลองที่-5-การจัดการข้อความและฟอนต์)
 ## การทดลองที่ 5: การจัดการข้อความและฟอนต์
@@ -791,12 +845,187 @@ font-weight: bold;
 
 ### ผลการทดลอง
 ```html
-[วางโค้ด HTML ที่นี่]
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ตัวอย่างหน้าเว็บ - เมนู, สินค้า และสถิติ</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="product card.css">
+  <link rel="stylesheet" href="stat.css">
+</head>
+<body>
+  <header>
+    <nav aria-label="เมนูหลัก">
+      <ul>
+        <li><a href="#home" class="menu-item">หน้าแรก</a></li>
+        <li><a href="#products" class="menu-item active">สินค้า</a></li>
+        <li><a href="#about" class="menu-item">เกี่ยวกับเรา</a></li>
+        <li><a href="#contact" class="menu-item">ติดต่อ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="products" aria-labelledby="products-heading">
+      <h2 id="products-heading">สินค้าแนะนำ</h2>
+      <div class="product-card">
+        <div class="product-image" role="img" aria-label="รองเท้าแมรี่เจน"></div>
+        <div class="product-info">
+          <h3 class="product-title">รองเท้าแมรี่เจน</h3>
+          <p class="product-price">฿559</p>
+          <p class="product-description">รองเท้าแมรี่เจนสไตล์คลาสสิกที่มาพร้อมกับดีไซน์ที่น่ารักและความสะดวกสบาย เหมาะสำหรับทุกโอกาส ไม่ว่าจะเป็นการเดินเล่นในสวนหรือการออกงาน</p>
+          <a href="#" class="product-button">เพิ่มลงตะกร้า</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="stats" aria-labelledby="stats-heading">
+      <h2 id="stats-heading">สถิติ</h2>
+      <div class="stats-container">
+        <div class="stat-box" role="group" aria-labelledby="stat1-label">
+          <div class="stat-number" id="stat1-number">1,234</div>
+          <div class="stat-label" id="stat1-label">ผู้ใช้งาน</div>
+        </div>
+        <div class="stat-box" role="group" aria-labelledby="stat2-label">
+          <div class="stat-number" id="stat2-number">5.6K</div>
+          <div class="stat-label" id="stat2-label">ยอดขาย</div>
+        </div>
+        <div class="stat-box" role="group" aria-labelledby="stat3-label">
+          <div class="stat-number" id="stat3-number">98%</div>
+          <div class="stat-label" id="stat3-label">ความพึงพอใจ</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p style="text-align:center;padding:1rem 0;color:#666;">© 2026 ตัวอย่างเว็บไซต์</p>
+  </footer>
+</body>
+</html>
+
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ตัวอย่างบทความ</title>
+    <link rel="stylesheet" href="ex.css">
+</head>
+<body>
+    <article class="blog-post">
+        <header class="post-header">
+            <h1 class="post-title">ร้านขายรองเท้า FS Shop</h1>
+            <div class="post-meta">โพสต์เมื่อ 15 กุมภาพันธ์ 2026 | โดย นางสาวนภัสสร คำปัน</div>
+        </header>
+        
+        <div class="post-content">
+            <p>เหนื้อหาเกี่ยวกับรองเท้าในร้าน FS Shop ที่มีรองเท้าหลายแบบหลายสไตล์</p>
+
+            <h2>1.รองเท้าแมรี่เจน</h2>
+            <p>รองเท้าแมรี่เจนเป็นรองเท้าที่มีดีไซน์คลาสสิก มักทำจากหนังหรือวัสดุคุณภาพสูง มีความนุ่มสบายและเหมาะสำหรับการสวมใส่ในทุกโอกาส</p>
+
+            <blockquote>
+                "รองเท้าแมรี่เจนเป็นรองเท้าที่มีดีไซน์คลาสสิก"
+            </blockquote>
+
+            <h2>2.รองเท้าส้นสูง</h2>
+            <p>รองเท้าส้นสูงเป็นรองเท้าที่ช่วยเพิ่มความสูงให้กับผู้สวมใส่ มักทำจากวัสดุที่มีคุณภาพและออกแบบมาให้มีความสวยงาม</p>
+        </div>
+    </article>
+</body>
+</html>
 ```
 ```css
-[วางโค้ด CSS ที่นี่]
+@import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;800&display=swap');
+
+:root{
+  --page-bg: #f4f7fb; /* softer background */
+  --card-bg: #ffffff;
+  --title: #071032; /* darker heading */
+  --muted: #475569; /* muted text */
+  --accent: #2563eb; /* brighter accent */
+}
+
+/* Page */
+body{
+  margin: 0;
+  padding: 2rem;
+  background: var(--page-bg);
+  font-family: 'Sarabun', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--title);
+  font-size: 16px; /* base font size for easier scaling */
+}
+
+/* Article */
+.blog-post {
+  max-width: 920px; /* slightly wider */
+  margin: 2.5rem auto;
+  padding: 2rem; /* more breathing room */
+  background: var(--card-bg);
+  border-radius: 14px;
+  box-shadow: 0 14px 36px rgba(7,16,50,0.06);
+}
+
+.post-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.post-title {
+  font-size: 2.5rem; /* larger title */
+  color: var(--title);
+  margin: 0 0 0.5rem;
+  line-height: 1.08;
+  font-weight: 800;
+}
+
+.post-meta {
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.post-content {
+  font-size: 1.125rem; /* comfortable reading size (~18px) */
+  line-height: 1.85;
+  color: #222b36;
+}
+
+.post-content p {
+  margin-bottom: 1.25rem;
+}
+
+.post-content h2 {
+  font-size: 1.5rem; /* more visible subsection */
+  color: var(--title);
+  margin: 2rem 0 0.75rem;
+}
+
+blockquote {
+  font-style: italic;
+  border-left: 4px solid var(--accent);
+  background: rgba(37,99,235,0.06);
+  margin: 1.25rem 0;
+  padding: 0.9rem 1rem;
+  border-radius: 8px;
+  color: #344156;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body{ padding: 1rem; }
+  .blog-post{ padding: 1rem; }
+  .post-title { font-size: 1.8rem; }
+  .post-content { font-size: 1rem; line-height: 1.7; }
+  .post-content h2 { font-size: 1.125rem; }
+}
+
 ```
-[บันทึกภาพหน้าจอของผลลัพธ์การทดลอง]
+[![alt text](<ภาพถ่ายหน้าจอ 2569-02-19 เวลา 16.40.40.png>)]
 
 [](#การทดลองที่-6-Layout-และการจัดวางอิลิเมนต์)
 ## การทดลองที่ 6: Layout และการจัดวางอิลิเมนต์
