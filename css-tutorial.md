@@ -1167,12 +1167,216 @@ blockquote {
 
 ### ผลการทดลอง
 ```html
-[วางโค้ด HTML ที่นี่]
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ตัวอย่างหน้าเว็บ - เมนู, สินค้า และสถิติ</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="product card.css">
+  <link rel="stylesheet" href="stat.css">
+  <link rel="stylesheet" href="product-grid.css">
+</head>
+<body>
+  <header>
+    <nav aria-label="เมนูหลัก">
+      <ul>
+        <li><a href="#home" class="menu-item">หน้าแรก</a></li>
+        <li><a href="#products" class="menu-item active">สินค้า</a></li>
+        <li><a href="#about" class="menu-item">เกี่ยวกับเรา</a></li>
+        <li><a href="#contact" class="menu-item">ติดต่อ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="products" aria-labelledby="products-heading">
+      <h2 id="products-heading">สินค้าแนะนำ</h2>
+
+      <!-- New product grid -->
+      <div class="product-grid">
+        <div class="grid-product-card">
+          <div class="grid-product-image" style="background-image:url('https://i.pinimg.com/736x/1a/ad/db/1aaddb0f6426f64a728efdd5d7b377fc.jpg');" role="img" aria-label="รองเท้าแมรี่เจน สีดำ"></div>
+          <div class="grid-product-details">
+            <h3 class="grid-product-title">รองเท้าแมรี่เจน สีดำ</h3>
+            <div class="grid-product-price">฿559</div>
+            <div class="grid-product-action"><button class="grid-add-to-cart">เพิ่มลงตะกร้า</button></div>
+          </div>
+        </div>
+
+        <div class="grid-product-card">
+          <div class="grid-product-image" style="background-image:url('https://i.pinimg.com/1200x/6e/23/da/6e23da1aac2340539b5c89a3518c7fa6.jpg');" role="img" aria-label="รองเท้าแมรี่เจน สีขาว"></div>
+          <div class="grid-product-details">
+            <h3 class="grid-product-title">รองเท้าส้นสูง</h3>
+            <div class="grid-product-price">฿619</div>
+            <div class="grid-product-action"><button class="grid-add-to-cart">เพิ่มลงตะกร้า</button></div>
+          </div>
+        </div>
+
+        <div class="grid-product-card">
+          <div class="grid-product-image" style="background-image:url('https://i.pinimg.com/736x/a3/10/ce/a310ce796e7793be794da81894a25f38.jpg');" role="img" aria-label="รองเท้าส้นสูง สีแดง"></div>
+          <div class="grid-product-details">
+            <h3 class="grid-product-title">รองเท้าบูท</h3>
+            <div class="grid-product-price">฿899</div>
+            <div class="grid-product-action"><button class="grid-add-to-cart">เพิ่มลงตะกร้า</button></div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="stats" aria-labelledby="stats-heading">
+      <h2 id="stats-heading">สถิติ</h2>
+      <div class="stats-container">
+        <div class="stat-box" role="group" aria-labelledby="stat1-label">
+          <div class="stat-number" id="stat1-number">1,234</div>
+          <div class="stat-label" id="stat1-label">ผู้ใช้งาน</div>
+        </div>
+        <div class="stat-box" role="group" aria-labelledby="stat2-label">
+          <div class="stat-number" id="stat2-number">5.6K</div>
+          <div class="stat-label" id="stat2-label">ยอดขาย</div>
+        </div>
+        <div class="stat-box" role="group" aria-labelledby="stat3-label">
+          <div class="stat-number" id="stat3-number">98%</div>
+          <div class="stat-label" id="stat3-label">ความพึงพอใจ</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p style="text-align:center;padding:1rem 0;color:#666;">© 2026 ตัวอย่างเว็บไซต์</p>
+  </footer>
+</body>
+</html>
+
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ตัวอย่างบทความ</title>
+    <link rel="stylesheet" href="ex.css">
+</head>
+<body>
+    <article class="blog-post">
+        <header class="post-header">
+            <h1 class="post-title">ร้านขายรองเท้า FS Shop</h1>
+            <div class="post-meta">โพสต์เมื่อ 15 กุมภาพันธ์ 2026 | โดย นางสาวนภัสสร คำปัน</div>
+        </header>
+        
+        <div class="post-content">
+            <p>เหนื้อหาเกี่ยวกับรองเท้าในร้าน FS Shop ที่มีรองเท้าหลายแบบหลายสไตล์</p>
+
+            <h2>1.รองเท้าแมรี่เจน</h2>
+            <p>รองเท้าแมรี่เจนเป็นรองเท้าที่มีดีไซน์คลาสสิก มักทำจากหนังหรือวัสดุคุณภาพสูง มีความนุ่มสบายและเหมาะสำหรับการสวมใส่ในทุกโอกาส</p>
+
+            <blockquote>
+                "รองเท้าแมรี่เจนเป็นรองเท้าที่มีดีไซน์คลาสสิก"
+            </blockquote>
+
+            <h2>2.รองเท้าส้นสูง</h2>
+            <p>รองเท้าส้นสูงเป็นรองเท้าที่ช่วยเพิ่มความสูงให้กับผู้สวมใส่ มักทำจากวัสดุที่มีคุณภาพและออกแบบมาให้มีความสวยงาม</p>
+        </div>
+    </article>
+</body>
+</html>
 ```
 ```css
-[วางโค้ด CSS ที่นี่]
+/* Product grid styles (externalized) */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* larger items */
+  gap: 20px;
+  padding: 16px;
+  max-width: 920px; /* match blog post width for horizontal alignment */
+  margin: 0 auto;
+  justify-content: center; /* center the whole grid */
+  justify-items: center; /* center items inside each grid cell */
+}
+
+.grid-product-card {
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(7,16,50,0.06);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center content */
+  width: 100%;
+  max-width: 320px; /* limit card width for clearer layout */
+}
+
+.grid-product-image {
+  width: 100%;
+  height: 220px; /* larger, clearer image */
+  background-color: #f5f7fb;
+  background-size: cover; /* cover to fill and keep sharp */
+  background-position: center center;
+}
+
+.grid-product-details {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center; /* center text and button */
+  text-align: center;
+}
+
+.grid-product-title {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.grid-product-price {
+  font-size: 1.25rem; /* slightly larger price */
+  color: #1e40af;
+  font-weight: 800;
+}
+
+.grid-product-action {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center; /* center button */
+  width: 100%;
+}
+
+.grid-add-to-cart {
+  background-color: #1e40af;
+  color: white;
+  border: none;
+  padding: 8px 14px; /* slightly larger tap target */
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.98rem;
+}
+
+/* Ensure blog post title is centered so it lines up with the grid */
+.post-title {
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .product-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+  .grid-product-image{ height: 200px; }
+}
+
+@media (max-width: 600px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+  }
+  .grid-product-image{ height: 140px; }
+}
+
 ```
-[บันทึกภาพหน้าจอของผลลัพธ์การทดลอง]
+[![alt text](<ภาพถ่ายหน้าจอ 2569-02-19 เวลา 16.55.03.png>)]
 
 
 ### ตัวอย่างการใช้งาน: การสร้างเลย์เอาต์ Modern Dashboard
