@@ -389,7 +389,7 @@ background-size: cover;
 ### ผลการทดลอง
 ```html
 <!DOCTYPE html>
-<html lang="th">
+<html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -564,12 +564,121 @@ border: 1px solid black;
 
 ### ผลการทดลอง
 ```html
-[วางโค้ด HTML ที่นี่]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Statistics Dashboard</title>
+    <link rel="stylesheet" href="stat.css">
+</head>
+<body>
+    <div class="stats-container">
+        <div class="stat-box">
+            <div class="stat-number">1,234</div>
+            <div class="stat-label">ผู้ใช้งาน</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">5.6K</div>
+            <div class="stat-label">ยอดขาย</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number">98%</div>
+            <div class="stat-label">ความพึงพอใจ</div>
+        </div>
+    </div>
+</body>
+</html>
 ```
 ```css
-[วางโค้ด CSS ที่นี่]
+:root{
+  --page-bg: #f3f6fb;
+  --card-bg: #ffffff;
+  --primary: #1d4ed8; /* blue */
+  --muted: #6b7280; /* gray */
+  --accent: #0f172a; /* dark */
+  --gap: 1rem;
+}
+
+body{
+  background: var(--page-bg);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--accent);
+}
+
+.stats-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 2.5rem auto;
+  padding: 0 1rem;
+  align-items: stretch;
+}
+
+.stat-box {
+  flex: 1 1 0;
+  margin: 0;
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(15,23,42,0.06);
+  transition: transform .14s ease, box-shadow .14s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-box:hover,
+.stat-box:focus-within{
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(15,23,42,0.12);
+}
+
+.stat-number {
+  font-size: 2.5rem; /* ~40px */
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Smaller emphasis text (optional) */
+.stat-subtext{
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin-top: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px){
+  .stats-container{ max-width: 920px; }
+  .stat-number{ font-size: 2.25rem; }
+}
+
+@media (max-width: 768px) {
+  .stats-container {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0 0.75rem;
+  }
+  .stat-box {
+    padding: 1rem 1rem;
+  }
+  .stat-number { font-size: 1.75rem; }
+  .stat-label { font-size: 0.85rem; }
+}
 ```
-[บันทึกภาพหน้าจอของผลลัพธ์การทดลอง]
+[![alt text](<ภาพถ่ายหน้าจอ 2569-02-19 เวลา 16.08.10.png>)]
 
 [](#การทดลองที่-5-การจัดการข้อความและฟอนต์)
 ## การทดลองที่ 5: การจัดการข้อความและฟอนต์
